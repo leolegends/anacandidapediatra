@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana Cândida Ferreira — Pediatria humanizada em São Paulo</title>
+  <meta name="description" content="Pediatra com 14 anos de experiência. Consultas de rotina, amamentação, pré-natal pediátrico e acompanhamento integral da família em São Paulo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #faf7f2;
+      --cream-dark: #f0ebe3;
+      --sage: #6b9b88;
+      --sage-deep: #4a7c6a;
+      --sage-muted: rgba(107, 155, 136, 0.15);
+      --coral: #d97b66;
+      --coral-soft: rgba(217, 123, 102, 0.12);
+      --ink: #1e2422;
+      --ink-soft: #4a5550;
+      --ink-faint: #7a8680;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(30, 36, 34, 0.08);
+      --shadow-sm: 0 8px 24px rgba(30, 36, 34, 0.06);
+      --radius: 1.25rem;
+      --radius-lg: 2rem;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "Lexend", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+      line-height: 1.65;
+      color: var(--ink-soft);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 120% 80% at 10% -10%, var(--sage-muted), transparent 50%),
+        radial-gradient(ellipse 100% 60% at 100% 0%, var(--coral-soft), transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    /* —— Header —— */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0.85rem clamp(1rem, 3vw, 2rem);
+      transition: background 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(250, 247, 242, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .site-header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sage-deep);
+      margin-top: 0.15rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.5rem, 2vw, 1.75rem);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      padding: 0.4rem 0;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--coral);
+      transition: width 0.3s var(--ease-out);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after { width: 100%; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.75rem 1.35rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--sage-deep);
+      outline-offset: 3px;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--sage-deep), var(--sage));
+      color: var(--white);
+      box-shadow: 0 8px 28px rgba(74, 124, 106, 0.35);
+    }
+
+    .btn--primary:hover { transform: translateY(-2px); }
+
+    .btn--ghost {
+      background: var(--white);
+      color: var(--ink);
+      border: 1px solid rgba(30, 36, 34, 0.12);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--sage);
+      color: var(--sage-deep);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: var(--white);
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 880px) {
+      .nav-toggle { display: flex; }
+      .nav-desktop { display: none; }
+      .mobile-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 1rem;
+        right: 1rem;
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        box-shadow: var(--shadow);
+        margin-top: 0.5rem;
+      }
+      .mobile-nav.is-open { display: block; }
+      .mobile-nav .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .mobile-nav .btn { width: 100%; margin-top: 0.5rem; }
+    }
+
+    /* —— Hero —— */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+      padding-top: 6.5rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 5.5rem;
+        text-align: center;
+      }
+      .hero__visual { order: -1; max-width: 420px; margin: 0 auto; }
+      .hero__actions { justify-content: center; flex-wrap: wrap; }
+      .hero__badges { justify-content: center; }
+    }
+
+    .hero__label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--sage-deep);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.1s forwards;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.4rem, 5vw + 1rem, 3.75rem);
+      line-height: 1.08;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      animation: fadeUp 0.85s var(--ease-out) 0.2s forwards;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sage-deep);
+      font-weight: 500;
+    }
+
+    .hero__lead {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 34ch;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.85s var(--ease-out) 0.35s forwards;
+    }
+
+    @media (max-width: 900px) {
+      .hero__lead { margin-left: auto; margin-right: auto; }
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.85s var(--ease-out) 0.5s forwards;
+    }
+
+    .hero__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      opacity: 0;
+      animation: fadeUp 0.85s var(--ease-out) 0.65s forwards;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: var(--white);
+      border: 1px solid rgba(30, 36, 34, 0.08);
+      color: var(--ink-soft);
+    }
+
+    .hero__visual {
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1s var(--ease-out) 0.4s forwards;
+    }
+
+    .hero__frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: linear-gradient(160deg, var(--sage-muted), var(--cream-dark));
+      box-shadow: var(--shadow);
+    }
+
+    .hero__frame::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 180deg at 50% 50%, transparent, var(--coral-soft), transparent 40%);
+      animation: spin 28s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__frame::before { animation: none; opacity: 0.5; }
+    }
+
+    .hero__photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      z-index: 1;
+    }
+
+    .hero__float {
+      position: absolute;
+      z-index: 3;
+      bottom: 12%;
+      left: -8%;
+      background: var(--white);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 200px;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @media (max-width: 900px) {
+      .hero__float { left: 4%; bottom: 8%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__float { animation: none; }
+    }
+
+    .hero__float strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--sage-deep);
+      line-height: 1.1;
+    }
+
+    .hero__float span {
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* —— Stats strip —— */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 0 auto 5rem;
+      max-width: 1200px;
+      padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      border: 1px solid rgba(30, 36, 34, 0.06);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card__num {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 700;
+      color: var(--coral);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-card__label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* —— Sections common —— */
+    section {
+      margin-bottom: clamp(4rem, 10vw, 6.5rem);
+    }
+
+    .section-head {
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+    }
+
+    .section-head__eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--coral);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 3vw + 0.5rem, 2.65rem);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+    }
+
+    .section-head p {
+      margin-top: 0.85rem;
+      max-width: 52ch;
+      color: var(--ink-faint);
+    }
+
+    /* —— About —— */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+
+    @media (max-width: 880px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    .about-copy p + p { margin-top: 1rem; }
+
+    .about-copy strong { color: var(--ink); }
+
+    .about-aside {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid rgba(30, 36, 34, 0.06);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-aside h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline {
+      list-style: none;
+      border-left: 2px solid var(--sage-muted);
+      padding-left: 1.25rem;
+    }
+
+    .timeline li {
+      position: relative;
+      padding-bottom: 1.35rem;
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -1.37rem;
+      top: 0.35rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sage);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--sage-muted);
+    }
+
+    .timeline time {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--coral);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline p {
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+      color: var(--ink-soft);
+    }
+
+    /* —— Services bento —— */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .bento__card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.35rem, 3vw, 2rem);
+      border: 1px solid rgba(30, 36, 34, 0.06);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.35s var(--ease-out), border-color 0.35s;
+      grid-column: span 4;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bento__card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(107, 155, 136, 0.35);
+    }
+
+    .bento__card--wide { grid-column: span 8; }
+    .bento__card--tall { grid-row: span 1; min-height: 240px; }
+
+    @media (max-width: 960px) {
+      .bento__card,
+      .bento__card--wide { grid-column: span 12; }
+    }
+
+    .bento__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--sage-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .bento__card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .bento__card p {
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      flex: 1;
+    }
+
+    .bento__tag {
+      margin-top: 1rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sage-deep);
+    }
+
+    /* —— Philosophy —— */
+    .philosophy {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: clamp(2.5rem, 5vw, 4rem);
+      background: linear-gradient(135deg, var(--sage-deep) 0%, #3d6656 100%);
+      color: rgba(255, 255, 255, 0.9);
+      overflow: hidden;
+    }
+
+    .philosophy::after {
+      content: "";
+      position: absolute;
+      right: -20%;
+      top: -30%;
+      width: 60%;
+      height: 160%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
+      pointer-events: none;
+    }
+
+    .philosophy .section-head__eyebrow { color: rgba(255,255,255,0.7); }
+    .philosophy h2 { color: var(--white); max-width: 22ch; }
+    .philosophy .section-head p { color: rgba(255,255,255,0.75); }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .philosophy-grid { grid-template-columns: 1fr; }
+    }
+
+    .phil-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .phil-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .phil-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* —— Puériculture —— */
+    .puer {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .puer { grid-template-columns: 1fr; }
+    }
+
+    .puer__visual {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid rgba(30, 36, 34, 0.06);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .puer__visual blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 1.25rem;
+    }
+
+    .puer__visual cite {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--coral);
+    }
+
+    .freq {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--cream-dark);
+      border-radius: var(--radius);
+    }
+
+    .freq h4 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--sage-deep);
+      margin-bottom: 1rem;
+    }
+
+    .freq-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(30, 36, 34, 0.08);
+      font-size: 0.88rem;
+    }
+
+    .freq-row:last-child { border-bottom: none; }
+
+    .freq-row span:first-child {
+      font-weight: 700;
+      color: var(--coral);
+      min-width: 5.5rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* —— FAQ —— */
+    .faq-list {
+      max-width: 720px;
+    }
+
+    details {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid rgba(30, 36, 34, 0.06);
+      margin-bottom: 0.65rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    details summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.1rem 1.25rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: "+";
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--sage);
+      transition: transform 0.25s;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    details .faq-a {
+      padding: 0 1.25rem 1.15rem;
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      line-height: 1.65;
+    }
+
+    /* —— CTA —— */
+    .cta {
+      text-align: center;
+      padding: clamp(2.5rem, 5vw, 4rem);
+      background: linear-gradient(180deg, var(--cream-dark), var(--cream));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(30, 36, 34, 0.06);
+    }
+
+    .cta h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .cta p {
+      max-width: 46ch;
+      margin: 0 auto 1.5rem;
+      color: var(--ink-faint);
+    }
+
+    .cta__note {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+    }
+
+    /* —— Footer —— */
+    .site-footer {
+      padding: 3rem 0 2rem;
+      border-top: 1px solid rgba(30, 36, 34, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    .site-footer .logo { margin-bottom: 0.75rem; }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+      max-width: 36ch;
+    }
+
+    .footer-col h4 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.45rem; }
+    .footer-col a {
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--sage-deep); }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(30, 36, 34, 0.06);
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+    }
+
+    /* —— Reveal on scroll —— */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="header">
+    <div class="site-header__inner">
+      <a href="#top" class="logo" id="top">Ana Cândida<span>Pediatria</span></a>
+      <nav class="nav-desktop" aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#puericula">Puéricultura</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="https://api.whatsapp.com/send?phone=5511918975221&amp;text=Ol%C3%A1%2C%20Dra.%20Ana%20C%C3%A2ndida%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento." class="btn btn--primary" target="_blank" rel="noopener noreferrer">Agendar</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#puericula">Puéricultura</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=5511918975221&amp;text=Ol%C3%A1%2C%20Dra.%20Ana%20C%C3%A2ndida%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento." class="btn btn--primary" target="_blank" rel="noopener noreferrer">Agendar consulta</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <span class="hero__label">Pediatria em São Paulo</span>
+          <h1 id="hero-title">Ana Cândida <em>Ferreira</em></h1>
+          <p class="hero__lead">
+            Sua família será atendida com respeito, atenção, afeto e de forma personalizada — com tempo para conversar, acolher dúvidas e construir um plano de saúde que faz sentido para o contexto de cada lar.
+          </p>
+          <div class="hero__actions">
+            <a href="https://api.whatsapp.com/send?phone=5511918975221&amp;text=Ol%C3%A1%2C%20Dra.%20Ana%20C%C3%A2ndida%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento." class="btn btn--primary" target="_blank" rel="noopener noreferrer">Quero agendar</a>
+            <a href="#servicos" class="btn btn--ghost">Ver serviços</a>
+          </div>
+          <div class="hero__badges">
+            <span class="badge">14 anos de experiência</span>
+            <span class="badge">+1500 famílias acompanhadas</span>
+            <span class="badge">Amamentação &amp; puéricultura</span>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__frame">
+            <img
+              class="hero__photo"
+              src="ana-candida.jpg"
+              alt="Dra. Ana Cândida Ferreira, pediatra, em retrato profissional"
+              width="960"
+              height="1280"
+              loading="eager"
+              decoding="async"
+            >
+          </div>
+          <div class="hero__float">
+            <span>Experiência clínica</span>
+            <strong>14 anos</strong>
+            <span style="display:block;margin-top:0.35rem;font-size:0.8rem;color:var(--ink-soft);text-transform:none;letter-spacing:0;">Pediatria integral</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat-card">
+        <div class="stat-card__num">14+</div>
+        <div class="stat-card__label">Anos em pediatria</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__num">1500+</div>
+        <div class="stat-card__label">Famílias atendidas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__num">2015</div>
+        <div class="stat-card__label">Pioneira em consultoria de amamentação (RS)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__num">∞</div>
+        <div class="stat-card__label">Atualização contínua</div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <section id="sobre" class="reveal" aria-labelledby="sobre-title">
+        <div class="section-head">
+          <p class="section-head__eyebrow">Quem sou eu</p>
+          <h2 id="sobre-title">Pediatra, mãe e parceira do desenvolvimento saudável</h2>
+          <p>Gaúcha, formada em Medicina com residência em Pediatria pela Universidade Federal do Rio Grande (FURG). Hoje exerço em São Paulo a pediatria que acredito: aquela que olha para a criança e para a família como um todo.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>
+              Sou <strong>mãe de duas meninas</strong> e passei por dificuldades na amamentação — o que me levou a buscar formações complementares na área e a me tornar <strong>pioneira em Rio Grande</strong> ao oferecer atendimento em <strong>Consultoria de Amamentação</strong> a partir de 2015, em salas de parto, alojamento conjunto, grupos de aleitamento materno e consultas particulares.
+            </p>
+            <p>
+              Em <strong>2019</strong> mudei para São Paulo para aprofundar uma prática baseada em evidências, vínculo e escuta ativa: decisões compartilhadas, respeito ao ritmo de cada família e foco na <strong>saúde integral</strong> do paciente infantil.
+            </p>
+            <p>
+              Levo em conta o <strong>contexto familiar</strong> em tudo o que envolve criação, rotina, sono, alimentação e desenvolvimento — porque cuidar de crianças é, na prática, cuidar de redes de afeto.
+            </p>
+          </div>
+          <aside class="about-aside" aria-label="Linha do tempo profissional">
+            <h3>Formação &amp; caminho</h3>
+            <ul class="timeline">
+              <li>
+                <time>Medicina &amp; residência</time>
+                <p>Formação em Medicina e Residência em Pediatria pela FURG, com base sólida em medicina baseada em evidências.</p>
+              </li>
+              <li>
+                <time>2015 — Amamentação</time>
+                <p>Referência regional em consultoria de amamentação; atuação em maternidade e grupos de apoio.</p>
+              </li>
+              <li>
+                <time>2019 — São Paulo</time>
+                <p>Ampliação da prática clínica com foco em parentalidade, puéricultura e acompanhamento longitudinal.</p>
+              </li>
+              <li>
+                <time>Contínuo</time>
+                <p>Cursos, congressos e pós-graduações em andamento para manter o cuidado alinhado ao que há de mais atual na pediatria.</p>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="servicos" class="reveal" aria-labelledby="servicos-title">
+        <div class="section-head">
+          <p class="section-head__eyebrow">Como posso ajudar</p>
+          <h2 id="servicos-title">Atendimentos pensados para cada fase da infância</h2>
+          <p>Da rotina ao desafio pontual, o objetivo é sempre o mesmo: segurança clínica com acolhimento e clareza para os responsáveis.</p>
+        </div>
+        <div class="bento">
+          <article class="bento__card bento__card--wide bento__card--tall">
+            <div class="bento__icon" aria-hidden="true">🩺</div>
+            <h3>Consultas de rotina</h3>
+            <p>
+              Muito além de pesar e medir: é o momento de avaliar o desenvolvimento global, antecipar orientações, conversar sobre sono, alimentação, vínculo e comportamento. Consultas com o tempo necessário para que nenhuma dúvida fique de fora.
+            </p>
+            <span class="bento__tag">Puéricultura &amp; prevenção</span>
+          </article>
+          <article class="bento__card">
+            <div class="bento__icon" aria-hidden="true">🤱</div>
+            <h3>Amamentação</h3>
+            <p>
+              Suporte prático e sensível: pega, produção de leite, dor, suplementação quando indicada e planos realistas para a rotina da família.
+            </p>
+            <span class="bento__tag">Consultoria especializada</span>
+          </article>
+          <article class="bento__card">
+            <div class="bento__icon" aria-hidden="true">👶</div>
+            <h3>Pré-natal pediátrico</h3>
+            <p>
+              Encontro antes do nascimento para alinhar expectativas, falar sobre aleitamento, visita ao berçário e primeiros cuidados — reduzindo ansiedade e fortalecendo vínculo.
+            </p>
+            <span class="bento__tag">Gestantes &amp; casais</span>
+          </article>
+          <article class="bento__card">
+            <div class="bento__icon" aria-hidden="true">💬</div>
+            <h3>Intercorrências</h3>
+            <p>
+              Febres, sintomas respiratórios, alterações digestivas, dúvidas sobre vacinas e crescimento: avaliação criteriosa com explicação do que esperar e quando procurar ajuda.
+            </p>
+            <span class="bento__tag">Pediatria geral</span>
+          </article>
+          <article class="bento__card">
+            <div class="bento__icon" aria-hidden="true">📚</div>
+            <h3>Atualização constante</h3>
+            <p>
+              Participação em cursos, congressos e pós-graduações para incorporar novas evidências ao cuidado do dia a dia — sempre com linguagem acessível às famílias.
+            </p>
+            <span class="bento__tag">Evidência + afeto</span>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <section class="philosophy reveal" aria-labelledby="filosofia-title">
+        <div class="section-head">
+          <p class="section-head__eyebrow">Linha de cuidado</p>
+          <h2 id="filosofia-title">Por que a consulta de rotina importa tanto</h2>
+          <p>A medicina preventiva de verdade começa cedo — desde antes do nascimento — e continua em cada encontro que fortalece bases de saúde para a vida toda.</p>
+        </div>
+        <div class="philosophy-grid">
+          <div class="phil-card">
+            <h4>Acolhimento</h4>
+            <p>Espaço seguro para perguntas “simples” e complexas, sem julgamento. A parentalidade pede apoio, não pressa.</p>
+          </div>
+          <div class="phil-card">
+            <h4>Desenvolvimento</h4>
+            <p>Marcos, linguagem, sociabilidade e neurodesenvolvimento observados no contexto da criança — não só em tabelas.</p>
+          </div>
+          <div class="phil-card">
+            <h4>Prevenção</h4>
+            <p>Orientações sobre alimentação, sono, movimento e vínculo que reduzem riscos e promovem bem-estar duradouro.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <section id="puericula" class="puer reveal" aria-labelledby="puer-title">
+        <div class="puer__visual">
+          <blockquote>
+            “A verdadeira medicina preventiva está na mão de bons pediatras. Cuidar dos nossos bebês para evitar doenças no presente e no futuro olhando para as bases: conceber e gestar, nascer, comer, desenvolver…”
+          </blockquote>
+          <cite>Puéricultura</cite>
+          <div class="freq">
+            <h4>Periodicidade sugerida (crianças sem doenças crônicas)</h4>
+            <div class="freq-row">
+              <span>1º ano</span>
+              <span>Consultas mensais de acompanhamento do bebê.</span>
+            </div>
+            <div class="freq-row">
+              <span>2º ano</span>
+              <span>Acompanhamento bimensal ou trimestral, conforme orientação individualizada.</span>
+            </div>
+            <div class="freq-row">
+              <span>Depois</span>
+              <span>Visitas semestrais ou mais frequentes se houver necessidade clínica ou dúvidas sobre desenvolvimento.</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="section-head">
+            <p class="section-head__eyebrow">Puéricultura</p>
+            <h2 id="puer-title">Cuidado contínuo, do nascimento ao adolescência</h2>
+            <p>
+              A consulta de rotina é um encontro rico em trocas: traz insights sobre parentalidade, esclarece mitos e constrói confiança. Por isso, precisa de tempo — o mesmo tempo que eu gostaria de ter quando estava do outro lado da mesa como mãe.
+            </p>
+          </div>
+          <p style="margin-top:1rem;color:var(--ink-faint);font-size:0.92rem;">
+            Quando há condições crônicas, prematuridade ou alterações no desenvolvimento, a periodicidade é ajustada individualmente, sempre com explicação clara dos motivos e próximos passos.
+          </p>
+        </div>
+      </section>
+
+      <section id="duvidas" class="reveal" aria-labelledby="faq-title">
+        <div class="section-head">
+          <p class="section-head__eyebrow">Perguntas frequentes</p>
+          <h2 id="faq-title">Transparência para você decidir com tranquilidade</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Atende convênio ou apenas particular?</summary>
+            <div class="faq-a">Substitua esta resposta pelas regras reais do consultório (convênios aceitos, particular, telemedicina). Este layout está pronto para receber o texto oficial.</div>
+          </details>
+          <details>
+            <summary>Quanto tempo dura uma consulta?</summary>
+            <div class="faq-a">As consultas são planejadas para não serem corridas: o tempo varia conforme a idade da criança e a complexidade do tema — sempre com espaço para dúvidas dos responsáveis.</div>
+          </details>
+          <details>
+            <summary>Atende recém-nascidos e acompanhamento de prematuros?</summary>
+            <div class="faq-a">Sim, faz parte da prática em pediatria integral e puéricultura. Ajustes de rotina e proximidade entre consultas podem ser combinados conforme necessidade clínica.</div>
+          </details>
+          <details>
+            <summary>Como funciona o suporte à amamentação?</summary>
+            <div class="faq-a">Avaliação global da mãe-bebê, observação da pega, estratégias para aumento de conforto e produção, e plano alinhado às metas da família — com encaminhamento quando houver indicação.</div>
+          </details>
+        </div>
+      </section>
+
+      <section id="contato" class="cta reveal" aria-labelledby="cta-title">
+        <h2 id="cta-title">Vamos cuidar juntos da saúde da sua criança?</h2>
+        <p>Chame no WhatsApp para combinar horários, saber sobre valores e modalidade de atendimento. Estou à disposição para acolher sua família com o mesmo carinho que guia todo o meu trabalho.</p>
+        <a href="https://api.whatsapp.com/send?phone=5511918975221&amp;text=Ol%C3%A1%2C%20Dra.%20Ana%20C%C3%A2ndida%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento." class="btn btn--primary" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Ana Cândida<span>Pediatria</span></div>
+        <p>Médica pediatra com 14 anos de experiência. São Paulo — atendimento humanizado, baseado em evidências e próximo das famílias.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#puericula">Puéricultura</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="https://api.whatsapp.com/send?phone=5511918975221&amp;text=Ol%C3%A1%2C%20Dra.%20Ana%20C%C3%A2ndida%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento." target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Áreas</h4>
+        <ul>
+          <li><a href="#servicos">Rotina</a></li>
+          <li><a href="#servicos">Amamentação</a></li>
+          <li><a href="#servicos">Pré-natal pediátrico</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© <span id="year"></span> Ana Cândida Ferreira — Pediatria. Todos os direitos reservados.</span>
+      <span>Criado por <a href="https://www.codeandscale.com.br/" target="_blank" rel="noopener">CodeandScale</a>.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.getElementById("header");
+      var toggle = document.getElementById("navToggle");
+      var mobile = document.getElementById("mobileNav");
+
+      function onScroll() {
+        header.classList.toggle("is-scrolled", window.scrollY > 24);
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      if (toggle && mobile) {
+        toggle.addEventListener("click", function () {
+          var open = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", !open);
+          mobile.classList.toggle("is-open", !open);
+        });
+        mobile.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            toggle.setAttribute("aria-expanded", "false");
+            mobile.classList.remove("is-open");
+          });
+        });
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduce) {
+        var els = document.querySelectorAll(".reveal");
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+        );
+        els.forEach(function (el) { obs.observe(el); });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
